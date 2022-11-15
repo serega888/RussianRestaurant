@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Russian.Services.ProductAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Russian.Services.ProductAPI.DbContexts
 		{
 
 		}
+
+		public DbSet<Product> Products { get; set; }
 
 	}
 }
