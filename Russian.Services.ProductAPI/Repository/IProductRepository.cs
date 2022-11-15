@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Russian.Services.ProductAPI.Repository
 {
-	interface IProductRepository
+	public interface IProductRepository
 	{
 		Task<IEnumerable<ProductDto>> GetProducts();
 		Task<ProductDto> GetProduct(int productId);
