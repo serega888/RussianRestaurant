@@ -24,12 +24,12 @@ namespace Russian.Services.ProductAPI.Repository
 		public async Task<ProductDto> CreateOrUpdateProduct(ProductDto productDto)
 		{
 			Product product = mapper.Map<ProductDto, Product>(productDto);
-			//if (product == null)
-			//{
-			//	return null;
-			//}
+			if (product == null)
+			{
+				return null;
+			}
 
-			if(product.ProductId > 0)
+			if (product.ProductId > 0)
 			{
 				this.dbContext.Products.Update(product);
 			}
