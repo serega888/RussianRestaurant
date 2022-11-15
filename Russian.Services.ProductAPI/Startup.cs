@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Russian.Services.ProductAPI.DbContexts;
+using Russian.Services.ProductAPI.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +32,12 @@ namespace Russian.Services.ProductAPI
 		{
 			services.AddDbContext<ApplicationDbContext>(option =>
 				option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+			IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+			services.AddSingleton(mapper);
+			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+			services.AddScoped<IProductRepository, ProductRepository>();
+
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{
