@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Russian.Web.Services;
+using Russian.Web.Services.IServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,10 @@ namespace Russian.Web
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddHttpClient<IProductService, ProductService>();
+			StaticVariable.PRODUCTAPIBASE = Configuration["ServiceUrls:ProductAPI"];
+
+			services.AddScoped<IProductService, ProductService>();
 			services.AddControllersWithViews();
 		}
 
