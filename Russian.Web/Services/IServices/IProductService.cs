@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Russian.Web.Services.IServices
 {
-	public interface IProductService
+	public interface IProductService: IBaseService
 	{
 		Task<T> GetProductsAsync<T>();
 		Task<T> GetProductAsync<T>(int id);
