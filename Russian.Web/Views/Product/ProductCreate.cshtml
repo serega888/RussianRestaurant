@@ -1,0 +1,52 @@
+﻿@model Russian.Web.Models.Dtos.ProductDto
+
+
+<form asp-action="ProductCreate">
+	<br />
+	<div class="container border p-3">
+		<h1 class="text-info">Создание продукта</h1>
+
+		<hr />
+		<div class="row">
+			<div class="col-2">
+				<label asp-for="ProductName" class="control-label pt-2" style="font-size:20px;">Продукт</label>
+			</div>
+			<div class="col-10 pb-3">
+				<input asp-for="ProductName" class="form-control" />
+			</div>
+			<div class="col-2">
+				<label asp-for="CategoryName" class="control-label pt-2" style="font-size:20px;">Категория</label>
+			</div>
+			<div class="col-10 pb-3">
+				<input asp-for="CategoryName" class="form-control" />
+			</div>
+			<div class="col-2">
+				<label asp-for="Description" class="control-label pt-2" style="font-size:20px;">Описание</label>
+			</div>
+			<div class="col-10 pb-3">
+				<textarea asp-for="Description" class="form-control" rows="5"></textarea>
+			</div>
+			<div class="col-2">
+				<label asp-for="ImageUrl" class="control-label pt-2" style="font-size:20px;">Адресс картинки</label>
+			</div>
+			<div class="col-10 pb-3">
+				<input asp-for="ImageUrl" class="form-control" />
+			</div>
+			<div class="col-2">
+				<label asp-for="Price" class="control-label pt-2" style="font-size:20px;">Цена</label>
+			</div>
+			<div class="col-10 pb-3">
+				<input asp-for="Price" class="form-control" />
+			</div>
+			<div class="col-5 offset-2">
+				<a asp-action="ProductIndex" class="btn-primary btn form-control ">Назад</a>
+			</div>
+			<div class="col-5">
+				<input type="submit" value="Создать" class="btn btn-info form-control" />
+			</div>
+		</div>
+		<div>
+		</div>
+	</div>
+</form>
+
